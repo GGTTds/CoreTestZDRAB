@@ -21,7 +21,7 @@ namespace TZERC
         public OplataRaschetYslg(float x1, float x2, float x3, float x4, float x5, float x6, float x7)
         {
             InitializeComponent();
-            g.Id = GlobalDat.GlobalData.GlobalID;
+            g.Id = GlobalDat.GlobalData.GlobalIDForData;
             g.DataKey = GlobalDat.GlobalData.GlobalID;
             ToWindowData(x1, x2,  x3,  x4,  x5,  x6, x7);
         }
@@ -31,6 +31,7 @@ namespace TZERC
             InterfaceClass.SaveDataUser v = new InterfaceClass.SaveDataUser();
             await v.Upd(g);
             MessageBox.Show("Тут должна происходить оплата");
+            this.Close();
         }
         public void ToWindowData(float x1, float x2, float x3, float x4, float x5, float x6, float x7)
         {

@@ -35,7 +35,7 @@ namespace TZERC
                 if(ForTryPas().Length == 0)
                 {
                     ReadPole();
-                    await u.RegisAsync(NewUser);
+                    u.RegisAsync(NewUser);
                     await u.RegistAddUserData(l.Text, pp.Password);
                     MessageBox.Show("Регистрация успешно завершена!");
                     this.Close();

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 using System.Windows;
 
 namespace TZERC.InterfaceClass
@@ -17,7 +18,7 @@ namespace TZERC.InterfaceClass
                 await using (TZERCBaseContext b = new TZERCBaseContext())
                 {
                     var v = await b.Users.Where(p => p.Login.Equals(log)).Where(p => p.Password.Equals(pas)).FirstOrDefaultAsync();
-
+                    var f = await b.DataUsers.Where(p => p.DataKey.Equals(v.Id)).FirstOrDefaultAsync();
                     if (v == null)
                     { 
                         MessageBox.Show(" Неправильный логин или пароль", "Ошибка");
@@ -26,6 +27,7 @@ namespace TZERC.InterfaceClass
                     else
                     {
                             GlobalDat.GlobalData.GlobalID =v.Id;
+                            GlobalDat.GlobalData.GlobalIDForData = f.Id;
                             GlobalDat.GlobalData.HowPPLive = v.PersonThisLive;
                             GlobalDat.GlobalData.FIO = $"{v.Name} {v.Surnsme} {v.Patronymic}";
                             GlobalDat.GlobalData.Electro = v.PriborElect;
@@ -47,8 +49,8 @@ namespace TZERC.InterfaceClass
             {
                 await using (TZERCBaseContext b = new TZERCBaseContext())
                 {
-                    await b.AddAsync(x);
-                    await b.SaveChangesAsync();
+                    b.Users.Add(x);
+                    b.SaveChanges();
                 }
                     return true;
             }
@@ -64,6 +66,7 @@ namespace TZERC.InterfaceClass
                 await using (TZERCBaseContext b = new TZERCBaseContext())
                 {
                     var v = await b.Users.Where(p => p.Login.Equals(s)).Where(p => p.Password.Equals(d)).FirstOrDefaultAsync();
+                    Task.Delay(20); // Сделано для того чтобы поток умпевал получить данные иначе может выкинкть Exception
 
                     DataUser t = new DataUser
                     {
@@ -78,7 +81,7 @@ namespace TZERC.InterfaceClass
                     };
                      b.DataUsers.Add(t);
                     await b.SaveChangesAsync();
-
+                    
                 }
                 return true;
             }

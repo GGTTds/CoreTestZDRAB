@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 
 namespace TZERC.InterfaceClass
 {
-    class EmlVal : Inrf.IEmlVal
+    public class EmlVal : Inrf.IEmlVal
     {
         public bool IsValidEmail(string email)
         {

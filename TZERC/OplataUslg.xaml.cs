@@ -105,9 +105,8 @@ namespace TZERC
             double GasPod = 0;
             double GasNag = 0;
             double DataEltNonChet = 0;
-            //
-            //try
-            //{
+            try
+            {
                 if (v1.Visibility == Visibility.Visible)
                 {
                     var ThisTarif2 = t.Where(p => p.Name.Equals("ХВС")).FirstOrDefault();
@@ -129,7 +128,7 @@ namespace TZERC
                     var ThisTarif1 = t.Where(p => p.Name.Equals("ГВС")).FirstOrDefault();
                     SumGvs = SY1.SumNonDataGVS((double)ThisTarif1.Norma, (double)ThisTarif1.Tarif1);
                     t4.Text = ThisTarif1.Norma.ToString();
-            }
+                }
                 if (v3.Visibility == Visibility.Visible)
                 {
                     var ThisTarif4 = t.Where(p => p.Name.Equals("ЭЭДень")).FirstOrDefault();
@@ -141,7 +140,7 @@ namespace TZERC
                     Elt = SY1.SumNonDataELdat((double)ThisTarif5.Norma, (double)ThisTarif5.Tarif1);
                     DataEltNonChet = (double)ThisTarif5.Norma;
                     t6.Text = "0";
-            }
+                }
                 if (v4.Visibility == Visibility.Visible)
                 {
                     var ThisTarif6 = t.Where(p => p.Name.Equals("ЭЭНочь")).FirstOrDefault();
@@ -152,7 +151,7 @@ namespace TZERC
                     var ThisTarif7 = t.Where(p => p.Name.Equals("ЭЭ")).FirstOrDefault();
                     Elt = SY1.SumNonDataELdat((double)ThisTarif7.Norma, (double)ThisTarif7.Tarif1);
                     t8.Text = "0";
-            }
+                }
                 if (v5.Visibility == Visibility.Visible)
                 {
                     var ThisTarif8 = t.Where(p => p.Name.Equals("ГВСПодача")).FirstOrDefault();
@@ -168,17 +167,19 @@ namespace TZERC
                     GasNag = SY.SumNag((double)ThisTarifNag11.Norma, (double)ThisTarifNag11.Tarif1);
                     t10.Text = ThisTarif10.Norma.ToString();
 
-            }
+                }
+                if (SumXvs < 0 || SumGvs < 0 || SumElcDay1 < 0 || SumElcNigt < 0 || Elt < 0 || GasPod < 0 || GasNag <0)
+                { throw new Exception();}
                 OplataRaschetYslg h = new OplataRaschetYslg((float)SumXvs, (float)SumGvs, (float)SumElcDay1, (float)SumElcNigt, (float)Elt, (float)GasPod, (float)GasNag);
                 h.GoDataUserUpd(double.Parse(t2.Text), double.Parse(t4.Text), DataEltNonChet, double.Parse(t6.Text), double.Parse(t8.Text), double.Parse(t10.Text));
                 h.ShowDialog();
-        //}
-        //    catch
-        //    {
-        //        MessageBox.Show("Проверте правильно ли вы ввели значения!");
-        //    }
+            }
+            catch
+            {
+                MessageBox.Show("Проверте правильно ли вы ввели значения!");
+            }
 
 
-}
+        }
     }
 }
