@@ -28,7 +28,7 @@ namespace TZERC.InterfaceClass
         }
         public double SumNag(double a, double b)
         {
-            return b * b;
+            return a * b;
         }
     }
 }
