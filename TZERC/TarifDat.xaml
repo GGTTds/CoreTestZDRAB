@@ -1,0 +1,20 @@
+﻿<Window x:Class="TZERC.TarifDat"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TZERC"
+        mc:Ignorable="d"
+        Title="Тарифы" Height="241" Width="639" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <DataGrid IsReadOnly="True"  x:Name="GT" HorizontalAlignment="Left" Height="190" Margin="0,10,0,0" VerticalAlignment="Top" Width="611" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Услуга" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Тариф\руб" Binding="{Binding Tarif1}"/>
+                <DataGridTextColumn Header="Норматив" Binding="{Binding Norma}"/>
+                <DataGridTextColumn Header="Ед.из" Binding="{Binding EdIzm}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Window>

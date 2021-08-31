@@ -1,0 +1,35 @@
+﻿<Window x:Class="TZERC.Registr"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TZERC"
+        mc:Ignorable="d"
+        Title="Registr" Height="420" Width="345" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Label x:Name="Nam" Content="Имя" HorizontalAlignment="Left" Margin="24,14,0,0" VerticalAlignment="Top" Height="24" Width="69" Foreground="#FF1AA033"/>
+        <Label x:Name="Sur" Content="Фамилия" HorizontalAlignment="Left" Margin="24,43,0,0" VerticalAlignment="Top" Height="24" Width="69" Foreground="#FF1AA033"/>
+        <Label x:Name="Pat" Content="Отчество" HorizontalAlignment="Left" Margin="24,72,0,0" VerticalAlignment="Top" Height="24" Width="69" Foreground="#FF1AA033"/>
+        <Label x:Name="Phone" Content="Телефон" HorizontalAlignment="Left" Margin="24,101,0,0" VerticalAlignment="Top" Height="24" Width="69" Foreground="#FF1AA033"/>
+        <Label x:Name="Email" Content="Почта" HorizontalAlignment="Left" Margin="24,130,0,0" VerticalAlignment="Top" Height="24" Width="69" Foreground="#FF1AA033"/>
+        <Label x:Name="Pers" Content="Проживающие" HorizontalAlignment="Left" Margin="24,159,0,0" VerticalAlignment="Top" Height="24" Width="136" Foreground="#FF1AA033"/>
+        <Label x:Name="Xvs" Content="Счетчик ХВС" HorizontalAlignment="Left" Margin="24,188,0,0" VerticalAlignment="Top" Height="24" Width="89" Foreground="#FF1AA033"/>
+        <Label x:Name="Gvs" Content="Счетчик ГВС" HorizontalAlignment="Left" Margin="24,215,0,0" VerticalAlignment="Top" Height="24" Width="89" Foreground="#FF1AA033"/>
+        <Label x:Name="Elc" Content="Эл.Счетчик" HorizontalAlignment="Left" Margin="24,244,0,0" VerticalAlignment="Top" Height="24" Width="89" Foreground="#FF1AA033"/>
+        <Label x:Name="log" Content="Логин" HorizontalAlignment="Left" Margin="24,273,0,0" VerticalAlignment="Top" Height="24" Width="69" Foreground="#FF1AA033"/>
+        <Label x:Name="Pass" Content="Пароль" HorizontalAlignment="Left" Margin="24,302,0,0" VerticalAlignment="Top" Height="24" Width="69" Foreground="#FF1AA033"/>
+        <Button Click="Button_Click" Content="Зарегистрироваться" HorizontalAlignment="Left" Margin="111,359,0,0" VerticalAlignment="Top" Height="23" Width="135" Background="{x:Null}"/>
+        <PasswordBox x:Name="pp" HorizontalAlignment="Left" Margin="155,306,0,0" VerticalAlignment="Top" Width="168"/>
+        <TextBox x:Name="l" HorizontalAlignment="Left" Margin="155,273,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="168"/>
+        <TextBox x:Name="n" HorizontalAlignment="Left" Margin="155,16,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="168"/>
+        <TextBox x:Name="s" HorizontalAlignment="Left" Margin="155,45,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="168"/>
+        <TextBox x:Name="o" HorizontalAlignment="Left" Margin="155,74,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="168"/>
+        <TextBox PreviewTextInput="t1_PreviewTextInput" x:Name="t1" HorizontalAlignment="Left" Margin="155,103,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="168"/>
+        <TextBox x:Name="po" HorizontalAlignment="Left" Margin="155,132,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="168"/>
+        <TextBox PreviewTextInput="t1_PreviewTextInput" x:Name="pro" HorizontalAlignment="Left" Margin="155,164,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="168"/>
+        <CheckBox x:Name="xs" Content="" HorizontalAlignment="Left" Margin="215,193,0,0" VerticalAlignment="Top" Width="17" Click="CheckBox_Click_1"/>
+        <CheckBox x:Name="gs" Content="" HorizontalAlignment="Left" Margin="215,222,0,0" VerticalAlignment="Top" Width="17" Click="CheckBox_Click"/>
+        <CheckBox x:Name="es" Content="" HorizontalAlignment="Left" Margin="215,248,0,0" VerticalAlignment="Top" Width="17" Click="CheckBox_Click_2"/>
+
+    </Grid>
+</Window>
